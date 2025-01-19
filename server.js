@@ -2,7 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import bodyParser from "body-parser";
 import cors from "cors";
-import path from "path";
+// import path from "path";
 
 import userRouter from "./Routes/user.js";
 import productRouter from "./Routes/product.js";
@@ -15,7 +15,7 @@ import dotenv from "dotenv"
 dotenv.config()
 
 const app = express();
-const _dirname = path.resolve();
+// const _dirname = path.resolve();
 
 // Middleware
 app.use(bodyParser.json());
@@ -46,12 +46,12 @@ mongoose
   .catch((err) => console.error("MongoDB connection error:", err));
 
 // Serve Static Files from React's Build Folder
-app.use(express.static(path.join(_dirname, "..", "client", "dist")));
+// app.use(express.static(path.join(_dirname, "..", "client", "dist")));
 
 // Catch-All Route for React Router (Frontend)
-app.get("*", (req, res) => {
-  res.sendFile(path.resolve(_dirname, "..", "client", "dist", "index.html"));
-});
+// app.get("*", (req, res) => {
+//   res.sendFile(path.resolve(_dirname, "..", "client", "dist", "index.html"));
+// });
 
 // Server Port
 const PORT = 1001;
